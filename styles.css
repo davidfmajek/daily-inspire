@@ -1,0 +1,325 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #e8e7da;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #e8e7da;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: black;
+  text-shadow: 0.7px 0.7px 0.7px rgb(255, 255, 255);
+}
+
+header nav a {
+  margin-right: 1.5rem;
+  text-decoration: none;
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #009688;
+}
+
+/* Main Content */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Quote Section */
+.main-quote-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.main-quote-section p {
+  color: #777;
+}
+
+.quote-box {
+  background-color: #f7f6eb;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1.5rem 0;
+  transition: transform 0.3s ease;
+}
+
+.quote-box:hover {
+  transform: scale(1.02);
+}
+
+#quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+#author {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Button Styles */
+.quote-actions button,
+#subscribe-form button {
+  margin: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#new-quote-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+#new-quote-btn:hover {
+  background-color: #0056b3;
+}
+
+#save-favorite-btn {
+  background-color: #fff;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+#save-favorite-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Favorite Quotes */
+.favorites-section {
+  margin: 2rem 0;
+}
+
+.favorites-section h3 {
+  font-size: 1.6rem;
+}
+
+.favorites-list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.favorite-quote {
+  background-color: #f7f6eb;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 40%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.favorite-quote:hover {
+  transform: scale(1.02);
+}
+
+/* Subscription Section */
+.subscribe-section {
+  margin: 2rem 0;
+}
+
+.subscribe-section form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+#subscribe-form input {
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 60%;
+}
+
+#subscribe-form button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#subscribe-form button:hover {
+  background-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .favorites-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .favorite-quote {
+    width: 90%;
+  }
+
+  #subscribe-form input {
+    width: 100%;
+  }
+}
+
+/* Dark Mode Toggle Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-left: 1rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #009688;
+}
+
+input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #222;
+  color: #ddd;
+}
+
+.dark-mode header {
+  background-color: #333;
+}
+
+.dark-mode .quote-box,
+.dark-mode .favorite-quote {
+  background-color: #333;
+  color: #ddd;
+}
+
+.dark-mode #new-quote-btn {
+  background-color: #009688;
+}
+
+.dark-mode #new-quote-btn:hover {
+  background-color: #00796b;
+}
+
+.dark-mode #save-favorite-btn {
+  background-color: #222;
+  color: #009688;
+  border-color: #009688;
+}
+
+.dark-mode #save-favorite-btn:hover {
+  background-color: #009688;
+  color: white;
+}
+
+.dark-mode #subscribe-form button {
+  background-color: #009688;
+}
+
+.dark-mode #subscribe-form button:hover {
+  background-color: #00796b;
+}
+
+/* SEE ALL button container */
+.see-all-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* SEE ALL button styling */
+.see-all-btn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid #74b9ff;
+  color: #74b9ff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  outline: none;
+}
+
+.see-all-btn:hover {
+  background-color: #74b9ff;
+  color: white;
+}
+
+/* Arrow style */
+.see-all-btn::after {
+  content: "";
+  font-size: 1.2rem;
+  margin-left: 8px;
+  transition: margin-left 0.3s ease;
+}
+
+.see-all-btn:hover::after {
+  margin-left: 12px;
+}
