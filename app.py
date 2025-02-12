@@ -6,11 +6,11 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for frontend requests
 
 # PostgreSQL connection details
-DB_NAME = "dailyinspire"
-DB_USER = "dailyuser"
-DB_PASSWORD = "dailyinspire@2025"
-DB_HOST = "localhost"  # Corrected host
-DB_PORT = "5432"  # Explicitly define port
+DB_NAME = "DB_NAME"
+DB_USER = "DB_USER"
+DB_PASSWORD = "DB_PASSWORD"
+DB_HOST = "DB_HOST"  # Corrected host
+DB_PORT = "DB_PORT"  # Explicitly define port
 
 # Connect to PostgreSQL
 connect = psycopg2.connect(
