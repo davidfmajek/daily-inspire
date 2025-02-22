@@ -3,7 +3,7 @@ A motivational quote web app using flask, postgreSQL, and JavaScript
 
 ## Features
 ✅ **Random Motivational Quotes**  
-✅ **Favorites System (♡ → ❤️ Toggle)**  
+✅ **Favorites System**  
 ✅ **Dark Mode Toggle**  
 ✅ **PostgreSQL Database for Persistent Storage**  
 ✅ **Mobile Responsive UI**  
