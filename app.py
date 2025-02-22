@@ -4,7 +4,8 @@ from flask import Flask, jsonify, render_template
 from flask_cors import CORS
 
 # Ensure Flask can find templates & static files
-app = Flask(__name__, template_folder="../templates", static_folder="../static")
+app = Flask(__name__)
+
 CORS(app)
 
 # PostgreSQL connection using environment variables
@@ -40,10 +41,6 @@ def index():
 @app.route('/favorites')
 def favorites_page():
     return render_template('favorites.html')
-
-# Vercel requires a function named `handler`
-def handler(event, context):
-    return app(event, context)
 
 if __name__ == "__main__":
     app.run(debug=True)
