@@ -1,16 +1,18 @@
+import os
+import psycopg2
 from flask import Flask, jsonify, render_template
 from flask_cors import CORS
-import psycopg2
 
-app = Flask(__name__)
-CORS(app)  # Enable CORS for frontend requests
+# Ensure Flask can find templates & static files
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
+CORS(app)
 
-# PostgreSQL connection details
-DB_NAME = "DB_NAME"
-DB_USER = "DB_USER"
-DB_PASSWORD = "DB_PASSWORD"
-DB_HOST = "DB_HOST"  # Corrected host
-DB_PORT = "DB_PORT"  # Explicitly define port
+# PostgreSQL connection using environment variables
+DB_NAME = os.environ.get("DB_NAME", "dailyinspire")
+DB_USER = os.environ.get("DB_USER", "dailyuser")
+DB_PASSWORD = os.environ.get("DB_PASSWORD", "yourpassword")
+DB_HOST = os.environ.get("DB_HOST", "localhost")
+DB_PORT = os.environ.get("DB_PORT", "5432")
 
 # Connect to PostgreSQL
 connect = psycopg2.connect(
@@ -29,15 +31,19 @@ def get_quote():
     quote = cursor.fetchone()
     return jsonify({"quote": quote[0], "author": quote[1] if quote[1] else "Unknown"})
 
-#route to serve the index.html
+# Route to serve the homepage
 @app.route('/')
 def index():
     return render_template('index.html')
 
-#route to serve the favorites.html
+# Route for the favorites page
 @app.route('/favorites')
 def favorites_page():
     return render_template('favorites.html')
+
+# Vercel requires a function named `handler`
+def handler(event, context):
+    return app(event, context)
 
 if __name__ == "__main__":
     app.run(debug=True)
