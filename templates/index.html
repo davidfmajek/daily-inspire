@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Inspire</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+  <header>
+    <h1 class="logo">DailyInspire</h1>
+    <nav>
+      <a href="/favorites">Favorites</a>
+      <!-- Dark Mode Toggle -->
+      <label class="switch">
+        <input type="checkbox" id="dark-mode-toggle">
+        <span class="slider"></span>
+      </label>
+    </nav>
+  </header>
+  <main>
+    <!-- Main Quote Section -->
+    <section class="main-quote-section">
+      <h2>Daily Motivation at Your Fingertips</h2>
+      <p>Get inspired with handpicked quotes delivered to you daily</p>
+      <div class="quote-box">
+        <p id="quote">Loading quote...</p>  <!-- Empty until filled dynamically -->
+        <p id="author"></p>  <!-- Empty until filled dynamically -->
+        <div class="quote-actions">
+            <button id="new-quote-btn">New Quote</button>
+            <button id="save-favorite-btn">♡ Save to Favorites</button>
+        </div>
+    </div>    
+    </section>
+
+        <!-- Favorite Quotes Section -->
+    <section class="favorites-section">
+      <h3>Your Favorite Quotes</h3>
+      <div class="favorites-list" id="favorites-list">
+      </div>
+    </section>
+  </main>
+</body>
+</html>

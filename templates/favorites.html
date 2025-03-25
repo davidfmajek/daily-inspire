@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Inspire - Favorites</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='favorites.css') }}">
+    <script src="{{ url_for('static', filename='favorites.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <!-- Clicking the logo redirects to the homepage -->
+        <h1 class="logo"><a href="/">DailyInspire</a></h1>  
+        <nav>
+            <label class="switch">
+                <input type="checkbox" id="dark-mode-toggle">
+                <span class="slider"></span>
+            </label>
+        </nav>
+    </header>
+
+    <main>
+        <section class="favorites-section">
+            <h2>Your Favorite Quotes</h2>
+            <div class="favorites-list" id="favorites-list">
+                <!-- All favorited quotes will be displayed here dynamically -->
+            </div>
+        </section>
+    </main>
+</body>
+</html>
