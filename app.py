@@ -7,7 +7,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-DATABASE_URL = os.environ.get("postgresql://dailyinspire_32tv_user:SJuWlt1pl50EnGTcQHyeahR0aOFV27gR@dpg-cvhhkqd2ng1s739rs2lg-a.virginia-postgres.render.com/dailyinspire_32tv")
+DATABASE_URL = os.environ.get("postgresql://dailyinspire_32tv_user:SJuWlt1pl50EnGTcQHyeahR0aOFV27gR@dpg-cvhhkqd2ng1s739rs2lg-a/dailyinspire_32tv")
 if not DATABASE_URL:
     raise ValueError("DATABASE_URL environment variable is not set")
 
