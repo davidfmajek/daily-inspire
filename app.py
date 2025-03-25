@@ -1,19 +1,23 @@
 import os
 import psycopg2
+from urllib.parse import urlparse
 from flask import Flask, jsonify, render_template
 from flask_cors import CORS
 
-# Ensure Flask can find templates & static files
 app = Flask(__name__)
-
 CORS(app)
 
-# PostgreSQL connection using environment variables
-DB_NAME = os.environ.get("DB_NAME", "dailyinspire")
-DB_USER = os.environ.get("DB_USER", "dailyuser")
-DB_PASSWORD = os.environ.get("DB_PASSWORD", "yourpassword")
-DB_HOST = os.environ.get("DB_HOST", "localhost")
-DB_PORT = os.environ.get("DB_PORT", "5432")
+DATABASE_URL = os.environ.get("postgresql://dailyinspire_32tv_user:SJuWlt1pl50EnGTcQHyeahR0aOFV27gR@dpg-cvhhkqd2ng1s739rs2lg-a.virginia-postgres.render.com/dailyinspire_32tv")
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL environment variable is not set")
+
+# Parse the URL
+result = urlparse(DATABASE_URL)
+DB_NAME = result.path[1:]
+DB_USER = result.username
+DB_PASSWORD = result.password
+DB_HOST = result.hostname
+DB_PORT = result.port
 
 # Connect to PostgreSQL
 connect = psycopg2.connect(
@@ -43,5 +47,4 @@ def favorites_page():
     return render_template('favorites.html')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=True)
-
+    app.run(debug=True)
